@@ -37,17 +37,17 @@ export default {
       this.$refs[refName].validate((valid)=>{
         if(valid){
           console.log('验证通过');
-          self.axios.post('/api/login', qs.stringify({username:self.user.username,password:self.user.password}))
-          .then((response)=>{
-            if(response.data.code == 200){
-              self.$message.success(response.data.message)
-              self.$router.push('/foo')
-            }else {
-              self.$message.error(response.data.message);
-            }
-          }).catch((error)=>{
-            self.$message.error('外星人呼的一下把我们服务器带走了，刷新一下说不定能抢回来~');
-          })
+              this.$store.dispatch('login',{
+                username: this.user.username,
+                password: this.user.password
+              })
+              .then((response) =>{
+                self.$router.push('/foo')
+                self.$message.success(response.data.message)
+              })
+              .catch((error) => {
+                self.$message.error(error.data.message)
+              })
         }
       })
     }

@@ -1,14 +1,19 @@
 <template>
-  <div id="app">
-    Bar
+  <div id="bar">
+    Bar ---{{getUsername}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'bar',
   data () {
     return {
+    }
+  },
+  computed: {
+    getUsername: function() {
+      return this.$store.getters.getUsername
     }
   }
 }
