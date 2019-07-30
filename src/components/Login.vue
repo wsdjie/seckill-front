@@ -11,6 +11,7 @@
   </el-form-item>
     <el-button type="primary" class="submit-btn" @click="login('userValid')">登录</el-button>
   </el-form>
+    <router-link to="/register"><el-button type="text" icon="el-icon-edit">去注册页</el-button></router-link>
   </div>
 </div>
 </template>
